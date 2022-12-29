@@ -1,0 +1,9 @@
+fastapi[all]
+sqlmodel
+asyncer
+pydantic-sqlalchemy
+rich
+fastapi-template
+fastapi-login
+python-jose
+databases

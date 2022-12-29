@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello World</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            document.getElementById("myForm").addEventListener("submit", function (e) {
+                e.preventDefault(); // Cancel the default action
+                submitForm();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <form id="myForm">
+        <input type="number" name="num">
+        <input class="submit" type="submit" value="Submit">
+    </form>
+    <div id="responseArea">Type a number</div>
+    <script>
+        function submitForm() {
+            var formElement = document.getElementById('myForm');
+            var data = new FormData(formElement);
+            fetch('/', {
+                method: 'POST',
+                body: data,
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("responseArea").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+
+</html>
